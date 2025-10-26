@@ -1,5 +1,7 @@
 package com.fullcycle.admin.catalogo.domain.validation;
 
+import javax.xml.validation.ValidatorHandler;
+
 public abstract class Validator {
 
     private final ValidationHandler handler;
@@ -8,7 +10,7 @@ public abstract class Validator {
         this.handler = aHandler;
     }
 
-    public abstract void validate();
+    public abstract  void validate();
 
     protected ValidationHandler validationHandler() {
         return this.handler;
