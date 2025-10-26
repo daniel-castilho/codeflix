@@ -1,9 +1,12 @@
 package com.fullcycle.admin.catalogo.application.category.create;
 
 import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
+import com.fullcycle.admin.catalogo.domain.exceptions.DomainException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -18,6 +21,12 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class CreateCategoryUseCaseTest {
 
+    @InjectMocks
+    private DefaultCreateCategoryUseCase useCase;
+
+    @Mock
+    private CategoryGateway categoryGateway;
+
     // 1. Teste do caminho feliz
     @Test
     public void givenAValidCommand_whenCallsCreateCategory_shouldReturnCategoryId() {
@@ -27,11 +36,7 @@ public class CreateCategoryUseCaseTest {
 
         final var aCommand = CreateCategoryCommand.with(expectedName, expectedDescription, expectedIsActive);
 
-        final CategoryGateway categoryGateway = Mockito.mock(CategoryGateway.class);
-
         when(categoryGateway.create(any())).thenAnswer(returnsFirstArg());
-
-        final var useCase = new DefaultCreateCategoryUseCase(categoryGateway);
 
         final var actualOutput = useCase.execute(aCommand);
 
@@ -51,22 +56,32 @@ public class CreateCategoryUseCaseTest {
 
     // 2. Teste passando uma propriedade inválida (name)
     @Test
-    public void givenAnInvalidName_whenCallsCreateCategory_thenShouldReturnDomainException() {
+    public void givenAInvalidName_whenCallsCreateCategory_thenShouldReturnDomainException() {
+        final String expectedName = null;
+        final var expectedDescription = "A categoria mais assistida";
+        final var expectedIsActive = true;
+        final var expectedErrorMessage = "'name' should not be null";
+        final var expectedErrorCount = 1;
+
+        final var aCommand = CreateCategoryCommand.with(expectedName, expectedDescription, expectedIsActive);
+
+        final var actualException = Assertions.assertThrows(DomainException.class, () -> useCase.execute(aCommand));
+
+        Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
+        Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
+
+        verify(categoryGateway, times(0)).create(any());
     }
 
     // 3. Teste passando uma propriedade inválida (description)
     @Test
-    public void givenAnInvalidDescription_whenCallsCreateCategory_thenShouldReturnDomainException() {
+    public void givenAValidCommandWithInactiveCategory_whenCallsCreateCategory_shouldReturnInactiveCategoryId() {
+
     }
 
     // 4. Teste passando uma propriedade inválida (isActive)
     @Test
-    public void givenAnInvalidIsActive_whenCallsCreateCategory_thenShouldReturnDomainException() {
-    }
-
-    // 5. Teste simulando um erro do gateway
-    @Test
-    public void givenAValidCommand_whenGatewayThrowsException_shouldReturnAnotification() {
+    public void givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnAException() {
     }
 
 }
