@@ -76,7 +76,28 @@ public class CreateCategoryUseCaseTest {
     // 3. Teste passando uma propriedade inválida (description)
     @Test
     public void givenAValidCommandWithInactiveCategory_whenCallsCreateCategory_shouldReturnInactiveCategoryId() {
+        final var expectedName = "Filmes";
+        final var expectedDescription = "A categoria mais assistida";
+        final var expectedIsActive = false;
 
+        final var aCommand = CreateCategoryCommand.with(expectedName, expectedDescription, expectedIsActive);
+
+        when(categoryGateway.create(any())).thenAnswer(returnsFirstArg());
+
+        final var actualOutput = useCase.execute(aCommand);
+
+        Assertions.assertNotNull(actualOutput);
+        Assertions.assertNotNull(actualOutput.id());
+
+        verify(categoryGateway, times(1)).create(Mockito.argThat(aCategory -> {
+            return Objects.equals(expectedName, aCategory.getName())
+                    && Objects.equals(expectedDescription, aCategory.getDescription())
+                    && Objects.equals(expectedIsActive, aCategory.isActive())
+                    && Objects.nonNull(aCategory.getId())
+                    && Objects.nonNull(aCategory.getCreatedAt())
+                    && Objects.nonNull(aCategory.getUpdatedAt())
+                    && Objects.nonNull(aCategory.getDeletedAt());
+        }));
     }
 
     // 4. Teste passando uma propriedade inválida (isActive)
