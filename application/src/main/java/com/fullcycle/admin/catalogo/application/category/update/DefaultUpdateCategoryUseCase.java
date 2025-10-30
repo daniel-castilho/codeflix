@@ -33,8 +33,7 @@ public class DefaultUpdateCategoryUseCase extends UpdateCategoryUseCase {
 
         final var notification = Notification.create();
 
-        final var aCategory = Category.newCategory(aName, aDescription, isActive);
-        aCategory.validate(notification);
+        aCategory.update(aName, aDescription, isActive).validate(notification);
 
         return notification.hasError() ? API.Left(notification) : update(aCategory);
 
@@ -42,13 +41,13 @@ public class DefaultUpdateCategoryUseCase extends UpdateCategoryUseCase {
 
     private Supplier<DomainException> notFound(final CategoryID anId) {
         return () -> DomainException.with(
-                new Error("Category with ID %s was not found".formatted(anId.getValue()))
+                new Error(String.format("Category with ID %s was not found", anId.getValue()))
         );
     }
 
-    private Either<Notification, UpdateCategoryOutput> update(Category aCategory) {
-        return API.Try(() -> this.categoryGateway.create(aCategory))
+    private Either<Notification, UpdateCategoryOutput> update(final Category aCategory) {
+        return API.Try(() -> this.categoryGateway.update(aCategory))
                 .toEither()
-                .bimap(Notification::update, CreateCategoryOutput::from);
+                .bimap(Notification::create, UpdateCategoryOutput::from);
     }
 }
