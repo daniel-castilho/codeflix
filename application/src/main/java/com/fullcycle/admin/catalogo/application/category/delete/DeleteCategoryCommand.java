@@ -1,4 +1,6 @@
 package com.fullcycle.admin.catalogo.application.category.delete;
 
-public record DeleteCategoryCommand() {
+import com.fullcycle.admin.catalogo.domain.category.CategoryID;
+
+public record DeleteCategoryCommand(CategoryID anId) {
 }
