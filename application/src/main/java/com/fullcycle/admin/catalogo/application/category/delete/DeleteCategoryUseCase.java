@@ -1,4 +1,8 @@
 package com.fullcycle.admin.catalogo.application.category.delete;
 
-public class DeleteCategoryUseCase {
+import com.fullcycle.admin.catalogo.application.UnitUseCase;
+
+public abstract class DeleteCategoryUseCase
+        extends UnitUseCase<String> {
+
 }
