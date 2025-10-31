@@ -2,6 +2,7 @@ package com.fullcycle.admin.catalogo.application.category.create;
 
 import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,6 +15,7 @@ import java.util.Objects;
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -26,6 +28,11 @@ public class CreateCategoryUseCaseTest {
 
     @Mock
     private CategoryGateway categoryGateway;
+
+    @BeforeEach
+    void cleanUp() {
+        reset(categoryGateway);
+    }
 
     // 1. Teste do caminho feliz
     @Test
@@ -73,7 +80,7 @@ public class CreateCategoryUseCaseTest {
         verify(categoryGateway, times(0)).create(any());
     }
 
-    // 3. Teste passando uma propriedade inválida (description)
+    // 3. Teste criando uma categoria inativa
     @Test
     public void givenAValidCommandWithInactiveCategory_whenCallsCreateCategory_shouldReturnInactiveCategoryId() {
         final var expectedName = "Filmes";
@@ -100,7 +107,7 @@ public class CreateCategoryUseCaseTest {
         }));
     }
 
-    // 4. Teste passando uma propriedade inválida (isActive)
+    // 4. Teste simulando um erro genérico vindo do gateway
     @Test
     public void givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnAnException() {
         final var expectedName = "Filmes";
