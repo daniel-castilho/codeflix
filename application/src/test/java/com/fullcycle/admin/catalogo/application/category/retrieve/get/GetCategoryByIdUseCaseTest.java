@@ -59,7 +59,7 @@ public class GetCategoryByIdUseCaseTest {
 
     @Test
     public void givenAnInvalidId_whenCallsGetCategoryById_shouldReturnNotFound() {
-        final var expectedErrorMessage = "";
+        final var expectedErrorMessage = "Category with ID 123 was not found";
         final var expectedId = CategoryID.from("123");
 
         when(categoryGateway.findById(eq(expectedId)))
@@ -74,7 +74,7 @@ public class GetCategoryByIdUseCaseTest {
 
     @Test
     public void givenAValidId_whenGatewayThrowsException_shouldReturnException() {
-        final var expectedErrorMessage = "";
+        final var expectedErrorMessage = "Category with ID 123 was not found";
         final var expectedId = CategoryID.from("123");
 
         when(categoryGateway.findById(eq(expectedId)))
