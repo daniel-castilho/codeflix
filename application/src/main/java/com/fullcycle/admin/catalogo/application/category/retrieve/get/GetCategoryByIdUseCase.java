@@ -1,7 +1,7 @@
 package com.fullcycle.admin.catalogo.application.category.retrieve.get;
 
-import com.fullcycle.admin.catalogo.application.UnitUseCase;
+import com.fullcycle.admin.catalogo.application.UseCase;
 
 public abstract class GetCategoryByIdUseCase
-        extends UnitUseCase<String, CategoryOutput> {
+        extends UseCase<String, CategoryOutput> {
 }

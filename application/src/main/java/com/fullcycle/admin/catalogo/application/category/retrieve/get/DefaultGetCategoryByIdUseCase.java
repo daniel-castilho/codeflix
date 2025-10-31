@@ -14,7 +14,7 @@ public class DefaultGetCategoryByIdUseCase extends GetCategoryByIdUseCase {
     }
 
     @Override
-    public CategoryOutput execute(String anIn) {
+    public CategoryOutput execute(final String anIn) {
        return this.categoryGateway.findById(CategoryID.from(anIn));
     }
 }
