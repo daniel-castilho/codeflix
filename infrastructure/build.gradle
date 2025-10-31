@@ -10,9 +10,9 @@ buildscript {
 plugins {
     id 'java'
     id 'application'
-    id 'org.springframework.boot' version '3.3.0'
+    id 'org.springframework.boot' version '3.5.7'
     id 'io.spring.dependency-management' version '1.1.5'
-    id 'org.flywaydb.flyway' version '10.12.0'
+//    id 'org.flywaydb.flyway' version '10.12.0'
 }
 
 java {
@@ -36,25 +36,25 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":application"))
 
-    implementation('com.mysql:mysql-connector-j:8.4.0')
+//    implementation('com.mysql:mysql-connector-j:8.4.0')
 
     implementation('org.springframework.boot:spring-boot-starter-web') {
         exclude module: 'spring-boot-starter-tomcat'
     }
     implementation('org.springframework.boot:spring-boot-starter-undertow')
-    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+//    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 
-    testImplementation('org.flywaydb:flyway-core:10.12.0')
+//    testImplementation('org.flywaydb:flyway-core:10.12.0')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
-    testRuntimeOnly('com.h2database:h2:2.2.224')
+//    testRuntimeOnly('com.h2database:h2:2.2.224')
 }
 
-flyway {
-    url = System.getenv('FLYWAY_DB') ?: 'jdbc:mysql://localhost:3306/adm_videos'
-    user = System.getenv('FLYWAY_USER') ?: 'root'
-    password = System.getenv('FLYWAY_PASS') ?: '123456'
-}
+//flyway {
+//    url = System.getenv('FLYWAY_DB') ?: 'jdbc:mysql://localhost:3306/adm_videos'
+//    user = System.getenv('FLYWAY_USER') ?: 'root'
+//    password = System.getenv('FLYWAY_PASS') ?: '123456'
+//}
 
 test {
     useJUnitPlatform()
