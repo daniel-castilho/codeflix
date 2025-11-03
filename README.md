@@ -40,7 +40,9 @@ codeflix/
 
 1. Inicie os serviços necessários:
    ```bash
-   docker-compose -f docker/docker-compose.yaml up -d
+   docker-compose --env-file .env.development up -d
+   docker-compose --env-file .env.test up -d
+   docker-compose --env-file .env.production up -d
    ```
 
 2. Construa e execute a aplicação:
@@ -55,7 +57,15 @@ codeflix/
 2. Configure as credenciais no arquivo `infrastructure/src/main/resources/application.yaml`
 3. Execute a aplicação:
    ```bash
-   mvn spring-boot:run -pl infrastructure
+   export $(cat .env.development | xargs)
+   mvn spring-boot:run
+   ```
+
+### Exibe informações de migração do Flyway
+
+   ```bash
+   export $(cat .env.test | xargs)
+   mvn -pl infrastructure flyway:info
    ```
 
 A aplicação estará disponível em: http://localhost:8080

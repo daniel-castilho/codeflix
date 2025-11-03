@@ -11,6 +11,11 @@ services:
       - seccomp:unconfined
     ports:
       - 3306:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u${DB_USER}", "-p${DB_PASS}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - adm_videos_network
 
