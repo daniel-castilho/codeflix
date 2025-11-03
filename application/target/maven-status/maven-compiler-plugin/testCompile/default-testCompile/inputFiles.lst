@@ -1,6 +1,0 @@
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/category/retrieve/list/ListCategoriesUseCaseTest.java
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/UseCaseTest.java
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/category/create/CreateCategoryUseCaseTest.java
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/category/update/UpdateCategoryUseCaseTest.java
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/category/delete/DeleteCategoryUseCaseTest.java
-/home/castilho/projects/codeflix/application/src/test/java/com/fullcycle/admin/catalogo/application/category/retrieve/get/GetCategoryByIdUseCaseTest.java

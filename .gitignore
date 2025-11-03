@@ -1,9 +1,30 @@
-HELP.md
-.gradle
+# Build directories
 build/
-!gradle/wrapper/gradle-wrapper.jar
+target/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+# Gradle (mantendo caso ainda existam referências)
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Maven wrapper
+.mvn/
+!mvnw*
+!mvnw.cmd
 
 ### STS ###
 .apt_generated
