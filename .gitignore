@@ -4,10 +4,6 @@ target/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-# Gradle (mantendo caso ainda existam referências)
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
-
 # Maven
 target/
 pom.xml.tag
@@ -57,3 +53,19 @@ out/
 ### VS Code ###
 .vscode/
 .history/
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+*.env
+.env.local
+.env.*.local
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
