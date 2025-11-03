@@ -1,0 +1,17 @@
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/category/Category.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/category/CategoryID.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/Identifier.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/category/CategoryGateway.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/validation/handler/Notification.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/validation/Validator.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/category/CategorySearchQuery.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/validation/handler/ThrowsValidationHandler.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/AggregateRoot.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NoStacktraceException.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/DomainException.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/category/CategoryValidator.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/pagination/Pagination.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/ValueObject.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/Entity.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/validation/Error.java
+/home/castilho/projects/codeflix/domain/src/main/java/com/fullcycle/admin/catalogo/domain/validation/ValidationHandler.java

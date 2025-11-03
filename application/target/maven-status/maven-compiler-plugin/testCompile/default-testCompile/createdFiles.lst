@@ -1,0 +1,6 @@
+com/fullcycle/admin/catalogo/application/UseCaseTest.class
+com/fullcycle/admin/catalogo/application/category/update/UpdateCategoryUseCaseTest.class
+com/fullcycle/admin/catalogo/application/category/create/CreateCategoryUseCaseTest.class
+com/fullcycle/admin/catalogo/application/category/delete/DeleteCategoryUseCaseTest.class
+com/fullcycle/admin/catalogo/application/category/retrieve/get/GetCategoryByIdUseCaseTest.class
+com/fullcycle/admin/catalogo/application/category/retrieve/list/ListCategoriesUseCaseTest.class
